@@ -1,14 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+:root{
+    --color-primario:#000000;
+    --color-secundario:#69a9c2;
+    --color-terciario: #074391;
+    --color-cuarnario: #80e5f7;
+
+    --fuente-montserrat: 'Montserrat', sans-serif;
+    --fuente-krona: 'Krona One', sans-serif;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--fuente-montserrat);
     background-color: #e5e5e5;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh; 
+    min-height: 100vh; /* Ajuste para ocupar mínimo el tamaño de la ventana */
     margin: 0;
     padding: 0;
-    font-size: 20px; 
+    font-size: 20px; /* Aumenta el tamaño del texto base */
 }
 
 .header {
@@ -21,8 +33,8 @@ body {
 }
 
 .container {
-    width: 100%; 
-    max-width: 800px; 
+    width: 100%; /* Para ocupar el ancho completo */
+    max-width: 800px; /* Máximo ancho del contenido */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,14 +43,14 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; 
-    box-sizing: border-box; 
+    margin-top: 20px; /* Espacio entre el header y el contenido */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
 }
 
 .input-output {
     width: 100%;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column; /* Cambiado a columna para apilar en dispositivos pequeños */
     gap: 24px;
 }
 
@@ -51,9 +63,10 @@ body {
 
 textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 6px;
+    border: 3px solid #49c1d6;
+    border-radius: 8px;
+    border-style: dotted;
     resize: vertical;
 }
 
@@ -62,9 +75,9 @@ textarea {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    padding: 12px 24px; 
+    padding: 12px 24px; /* Ajuste de padding para botones */
     border-radius: 24px;
-    font-size: 18px; 
+    font-size: 18px; /* Aumenta el tamaño de los botones */
     text-align: center;
     line-height: normal;
     font-weight: 400;
@@ -72,30 +85,32 @@ textarea {
 }
 
 .button.encriptar {
-    background-color: rgba(10, 56, 113, 1);
-    color: rgba(255, 255, 255, 1);
+    background-color: var(--color-terciario);
+    color: var(--color-cuarnario);
     border: none;
 }
 
 .button.desencriptar {
     background-color: transparent;
-    border: 1px solid rgba(10, 56, 113, 1);
-    color: rgba(10, 56, 113, 1);
+    border: 1px solid var(--color-terciario);
+    color: var(--color-secundario);
 }
 
 .button.copiar {
-    background-color: rgba(10, 56, 113, 1);
-    color: rgba(255, 255, 255, 1);
+    background-color: var(--color-terciario);
+    color: var(--color-cuarnario);
     border: none;
 }
 
 footer {
     text-align: center;
     margin-top: auto; /* Coloca el footer al final */
-    padding: 10px 0;
+    padding: 3px 0;
     width: 100%;
     background-color: #333;
-    color: #666;
+    color: #93989b;
     font-size: 14px;
     border-radius: 0 0 8px 8px;
+    font-family: var(--fuente-montserrat);
+
 }
