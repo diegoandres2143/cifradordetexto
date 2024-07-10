@@ -1,16 +1,21 @@
-const alphabet = 'abcdefghijklmnñopqrstuvwxyz';
-const reversedAlphabet = alphabet.split('').reverse().join('');
+const alfabeto = 'abcdefghijklmnñopqrstuvwxyz';
+const alfabetoAlReveshabet = alfabeto.split('').reverse().join('');
+const numeros = '0123456789';
+const numerosAlReves = numeros.split('').reverse().join('');
 
 function encriptar() {
     const inputText = document.getElementById('textoUsuario').value.toLowerCase();
     let encryptedText = '';
 
-    for (let char of inputText) {
-        const index = alphabet.indexOf(char);
-        if (index !== -1) {
-            encryptedText += reversedAlphabet[index];
+    for (let caracter of inputText) {
+        if (alfabeto.includes(caracter)) {
+            const index = alfabeto.indexOf(caracter);
+            encryptedText += alfabetoAlReveshabet[index];
+        } else if (numeros.includes(caracter)) {
+            const index = numeros.indexOf(caracter);
+            encryptedText += numerosAlReves[index];
         } else {
-            encryptedText += char; // mantiene el carácter si no está en el alfabeto (e.g., números, espacios, etc.)
+            encryptedText += caracter;
         }
     }
 
