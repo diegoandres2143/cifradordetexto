@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encriptador de texto</title>
+    <title>Cifrador de texto</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
+        <div class="header">
+            <h1>Cifrador de texto</h1>
+        </div>
         <div class="input-output">
             <div class="input-box">
-                <label for="textoUsuario">Introduce solo letras y números.</label>
-                <textarea id="textoUsuario" rows="4" placeholder="Texto a cifrar"></textarea>
-                <button class="button encriptar" onclick="encriptar()">Encriptar</button>
+                <label for="textoUsuario">Texto a cifrar</label>
+                <textarea id="textoUsuario" rows="4" placeholder="Introduce solo letras y números"></textarea>
+                <button class="button encriptar" onclick="encriptar()">Encriptar/Desencriptar</button>
             </div>
             <div class="output-box">
-                <label for="textoDeSalida">Salida de texto</label>
+                <label for="textoDeSalida">Texto cifrado</label>
                 <textarea id="textoDeSalida" rows="4" readonly></textarea>
-                <button class="button desencriptar" onclick="desencriptar()">Desencriptar</button>
+                <button class="button copiar" id="copiarBtn">Copiar al portapapeles</button>
             </div>
         </div>
     </div>
