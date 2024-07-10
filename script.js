@@ -1,79 +1,34 @@
-// Variables
-const letrasNumerosArray = 'a,b,c,d,e,f,g,h,i,j,k,l,m,n,ñ,o,p,q,r,s,t,u,v,w,x,y,z,0,1,2,3,4,5,6,7,8,9';
-const numeroInicial = 1;
-const mapaDeEncriptado = contadorDeArrayCifrado(letrasNumerosArray, numeroInicial);
-const mapaDeDesencriptado = invertirMapa(mapaDeEncriptado);
+const alphabet = 'abcdefghijklmnñopqrstuvwxyz';
+const reversedAlphabet = alphabet.split('').reverse().join('');
 
-// Funciones
-function textoUsuario() {
-    return document.getElementById('textoUsuario').value;
-}
-function textoDeSalida(texto) {
-    document.getElementById('textoDeSalida').value = texto;
-}
-function quitarEspacios(letrasNumeros) {
-    return letrasNumeros.trim();
-}
-function contadorDeArrayCifrado(letrasNumeros, numeroInicial) {
-    const letrasNumerosArray = letrasNumeros.split(',').map(quitarEspacios);
-    const mapaDeValoresCifrados = {};
-
-    let valorActual = numeroInicial;
-    letrasNumerosArray.forEach(letraNumero => {
-        mapaDeValoresCifrados[letraNumero] = valorActual.toString();
-        valorActual++;
-    });
-
-    return mapaDeValoresCifrados;
-}
-function invertirMapa(map) {
-    const mapaInvertido = {};
-    for (const [clave, valor] of Object.entries(map)) {
-        mapaInvertido[valor] = clave;
-    }
-    return mapaInvertido;
-}
 function encriptar() {
-    const texto = textoUsuario().toLowerCase();
-    let resultadoDeEncriptado = '';
+    const inputText = document.getElementById('textoUsuario').value.toLowerCase();
+    let encryptedText = '';
 
-    for (let caracter of texto) {
-        if (mapaDeEncriptado[caracter]) {
-            resultadoDeEncriptado += mapaDeEncriptado[caracter] + ' ';
-        } else if (caracter === ' ') {
-            resultadoDeEncriptado += ' ';
+    for (let char of inputText) {
+        const index = alphabet.indexOf(char);
+        if (index !== -1) {
+            encryptedText += reversedAlphabet[index];
         } else {
-            resultadoDeEncriptado += caracter;
+            encryptedText += char; // mantiene el carácter si no está en el alfabeto (e.g., números, espacios, etc.)
         }
     }
-    textoDeSalida(resultadoDeEncriptado.trim());
+
+    document.getElementById('textoDeSalida').value = encryptedText;
 }
+
 function desencriptar() {
-    const texto = textoUsuario();
-    let resultadoDeDesencriptado = '';
-    let palabraActual = '';
+    const inputText = document.getElementById('textoDeSalida').value.toLowerCase();
+    let decryptedText = '';
 
-    for (let caracter of texto) {
-        if (caracter === ' ') {
-            resultadoDeDesencriptado += desencriptadorDePalabras(palabraActual, mapaDeDesencriptado) + ' ';
-            palabraActual = '';
+    for (let char of inputText) {
+        const index = reversedAlphabet.indexOf(char);
+        if (index !== -1) {
+            decryptedText += alphabet[index];
         } else {
-            palabraActual += caracter;
+            decryptedText += char; // mantiene el carácter si no está en el alfabeto (e.g., números, espacios, etc.)
         }
     }
-    resultadoDeDesencriptado += desencriptadorDePalabras(palabraActual, mapaDeDesencriptado);
-    textoDeSalida(resultadoDeDesencriptado.trim());
-}
-function desencriptadorDePalabras(palabra, map) {
-    let palabraDesencriptada = '';
-    const palabrasEncriptadas = palabra.split(' ');
 
-    palabrasEncriptadas.forEach((palabraEncriptada) => {
-        if (map[palabraEncriptada]) {
-            palabraDesencriptada += map[palabraEncriptada];
-        } else {
-            palabraDesencriptada += palabraEncriptada;
-        }
-    });
-    return palabraDesencriptada;
+    document.getElementById('textoUsuario').value = decryptedText;
 }
