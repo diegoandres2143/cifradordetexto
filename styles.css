@@ -1,58 +1,93 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Inter', sans-serif;
+    background-color: #e5e5e5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
     margin: 0;
     padding: 0;
+    font-size: 20px; /* Aumenta el tamaño del texto base */
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 0 0;
 }
 
 .container {
-    max-width: 600px;
-    margin: 20px auto;
+    width: 688px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Espacio entre el header y el contenido */
 }
 
-.container h1 {
-    text-align: center;
-    color: #333;
+.input-output {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
 
-label {
-    display: block;
-    margin-bottom: 8px;
+.input-box, .output-box {
+    width: 100%; /* O ajusta según tus necesidades */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 textarea {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
 }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 24px;
+    border-radius: 24px;
+    font-size: 18px; /* Aumenta el tamaño de los botones */
+    text-align: center;
+    line-height: normal;
+    font-weight: 400;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
 }
 
-button:hover {
-    background-color: #0056b3;
+.button.encriptar {
+    background-color: rgba(10, 56, 113, 1);
+    color: rgba(255, 255, 255, 1);
+    border: none;
+}
+
+.button.desencriptar {
+    background-color: transparent;
+    border: 1px solid rgba(10, 56, 113, 1);
+    color: rgba(10, 56, 113, 1);
 }
 
 footer {
     text-align: center;
-    margin-top: 20px;
+    margin-top: auto; /* Coloca el footer al final */
+    padding: 10px 0;
+    width: 100%;
+    background-color: #333;
     color: #666;
     font-size: 14px;
+    border-radius: 0 0 8px 8px;
 }
