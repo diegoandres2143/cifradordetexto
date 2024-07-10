@@ -90,12 +90,6 @@ textarea {
     border: none;
 }
 
-.button.desencriptar {
-    background-color: transparent;
-    border: 1px solid var(--color-terciario);
-    color: var(--color-secundario);
-}
-
 .button.copiar {
     background-color: var(--color-terciario);
     color: var(--color-cuarnario);
