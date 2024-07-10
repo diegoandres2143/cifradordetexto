@@ -17,18 +17,15 @@ function encriptar() {
     document.getElementById('textoDeSalida').value = encryptedText;
 }
 
-function desencriptar() {
-    const inputText = document.getElementById('textoDeSalida').value.toLowerCase();
-    let decryptedText = '';
-
-    for (let char of inputText) {
-        const index = reversedAlphabet.indexOf(char);
-        if (index !== -1) {
-            decryptedText += alphabet[index];
-        } else {
-            decryptedText += char; // mantiene el carácter si no está en el alfabeto (e.g., números, espacios, etc.)
-        }
+document.getElementById('copiarBtn').addEventListener('click', async function() {
+    const textoCifrado = document.getElementById('textoDeSalida').value;
+    
+    try {
+        await navigator.clipboard.writeText(textoCifrado);
+        document.getElementById('textoDeSalida').value = '';
+        document.getElementById('textoDeSalida').placeholder = 'Texto copiado al portapapeles';
+    } catch (err) {
+        console.error('Error al intentar copiar el texto: ', err);
+        alert('No se pudo copiar el texto al portapapeles.');
     }
-
-    document.getElementById('textoUsuario').value = decryptedText;
-}
+});
